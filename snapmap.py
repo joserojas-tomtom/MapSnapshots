@@ -1,4 +1,7 @@
 import sys
+import urllib.request
+import json
+
 # Code here!
 
 # Fetch parameters from the command line
@@ -22,7 +25,12 @@ print ( url )
 
 req = urllib.request.urlopen(url)
 data = req.read().decode('utf-8')
-print(data)
+#print(data)
+
+# Convert data into JSON
+obj = json.loads(data)
+print(obj["results"][0]["position"])
+
 
 # Create API CALL to 'static image'
 
