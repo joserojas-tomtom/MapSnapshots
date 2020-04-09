@@ -42,16 +42,32 @@ print("...\n\n\n\n\n\n\n")
 lat = obj["results"][0]["position"]["lat"]
 lon = obj["results"][0]["position"]["lon"]
 
-small = '&width=256x&height=256'
-medium = '&width=512x&height=512'
-large= '&width=1024x&height=1024'
+translatedSize = ""
+
+#converted switch case /new
+
+if sys.argv[1]== 'small':
+    translatedSize = small
+    
+elif sys.argv[1]== 'medium':
+    translatedSize = medium
+    
+elif sys.argv[1]== 'large':
+    translatedSize = large
+    
+    
+# default:
+#         print ('Choose between small, medium, or large for the size parameter');
+
+#         break
+
+
 
 # Create API CALL to 'static image'
 # https://api.tomtom.com/map/1/staticimage?layer=basic&style=main&format=png&zoom=13&center=4.899886%2C%2052.379031&width=2048&height=2048&view=Unified&key=*****
 urlStaticImage = "https://api.tomtom.com/map/1/staticimage?" \
                  "layer=basic&style=main&format=png&zoom="+zoom+"&" \
-                 "center="+str(lon)+","+str(lat)+str(size)"&key="+apiKey
-#print(urlStaticImage)
+                 "center="+str(lon)+","+str(lat)+translatedSize+"&key="+apiKey#print(urlStaticImage)
 # Save image to a file ..
 imageRequest = urllib.request.urlopen(urlStaticImage)
 imageBinary = imageRequest.read()
