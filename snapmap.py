@@ -21,7 +21,7 @@ city = sys.argv[1]
 # Get the center location of the city.
 # use this URL : https://api.tomtom.com/search/2/search/cancun.json?idxSet=Geo&key=*****
 #
-# y4OUatPPGQgS71stpTvqD6n2iyteZrYD 
+#  
 url = 'https://api.tomtom.com/search/2/search/'+city+'.json?idxSet=Geo&key='+apiKey
 print ( url )
 
